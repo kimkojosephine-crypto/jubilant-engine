@@ -9,7 +9,7 @@ I architect logical, high-efficiency systems for remote teams and global busines
 
 ## 📂 Featured Portfolios
 
-### 🤖 [Giddy’s Cake Shop: AI Customer Agent](./Giddys-AI-Agent)
+### 🤖 [[Giddy’s Cake Shop: AI Customer Agent](https://github.com/kimkojosephine-crypto/jubilant-engine/commit/c8dc10a400ac11c87f28a577758398cacff0be10)](./Giddys-AI-Agent)
 **The Project:** A full-stack customer support orchestrator for a regional bakery. 
 - **Tech:** n8n, Docker, Render, Google Cloud OAuth2.
 - **Value:** Automated logistics validation for specific counties (Kisumu & Homa Bay), real-time order logging, and automated content generation.
