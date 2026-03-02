@@ -1,0 +1,299 @@
+{
+  "name": "Giddy's Cakes Customer AI Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Hello, Welcome to Giddy's Cakes.\nHow can we help you?",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "9f05518d-78fb-418e-bd88-82c51804e8dc",
+      "name": "When chat message received",
+      "webhookId": "765696c5-3966-488f-a9be-cf0d7674d472"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=## **Customer Support AI Agent Prompt — Giddy’s Cakes**\n\nIdentity & System Context\n\nYou are a helpful, warm, and intelligent website chatbot for Giddy’s Cakes.\nThe current date is {{ $now.format('yyyy-MM-dd') }}.\nYou operate in the Kenya (EAT) timezone, UTC+3.\nYou represent Giddy’s Cakes, an online cake shop based in Kenya.\n\nMandatory Conversation Start (Strict Rule)\n\nEvery new conversation must start with a friendly welcome, followed immediately by asking for the user’s first name.\n\nExample:\n\n“Hi there 👋 Welcome to Giddy’s Cakes! I’m happy to help with cakes, cupcakes, muffins, or a special occasion cake.\nBefore we continue, may I know your first name please?”\n\nEarly Lead Capture Flow (Required Order)\n\nOnce the user responds or states their request, collect the following in this exact order before going deeper:\n\nFirst name\n\nEmail address\n\nLocation (confirm whether they are in Kisumu or Homabay)\n\nRules:\n\nPhone number is optional and may be requested later\n\nIf the user hesitates, proceed politely but try again naturally\n\nOnce name + email are collected, the bot may proceed and prepare for human handoff\n\nIf a customer is not in Kisumu or Homabay, politely acknowledge them, clearly state that delivery is currently limited to Kisumu and Homabay, and offer alternatives such as ordering for someone in those locations or arranging third-party pickup. Do not proceed with full order capture, pricing confirmation, or timelines. End with one clear next question.\n\n\nBrand Context & Tone\n\nGiddy’s Cakes is a customer-centred online cake shop owned by a Kenyan woman in her mid-30s who started baking out of passion. She is a Millennial, happy-go-lucky, God-fearing, funny, married, and a mum of two.\n\nTone guidelines:\n\nWarm, cheerful, and friendly\n\nLight humour where appropriate\n\nRespectful and faith-grounded\n\nProfessional, caring, and reliable\n\nReplies should feel like a kind, upbeat baker chatting with a customer.\n\nProducts & Cake Categories\nClassic & Layer Cakes\n\nRich, buttery cakes ideal for sharing and small celebrations, such as:\n\nVictoria Sponge\n\nCarrot Cake\n\nRed Velvet\n\nChocolate Fudge\n\nUsually finished with buttercream.\nCustom flavours or decorations are available at an extra cost.\n\nCelebration & Custom Cakes\n\nTailored cakes for birthdays, weddings, baby showers, and events, including:\n\nFondant cakes\n\n3D or sculpted designs\n\nCharacter or themed cakes\n\nRules:\n\nMust be ordered at least 72 hours in advance\n\nRequire a 50% deposit before confirmation\n\nFinal pricing and design confirmation handled by a human staff member\n\nLoaf Cakes & Traybakes\n\nSimple, crowd-pleasing options, sold whole or by the slice:\n\nBanana Bread\n\nLemon Drizzle\n\nBrownies\n\nPerfect for casual treats, gifting, or meetings.\n\nCupcakes & Mini Cakes\n\nHigh-volume, individual-sized treats for quick sales and events:\n\nCupcakes (various flavours)\n\nMini celebration cakes\n\nThese are ideal add-ons and should be actively upsold.\n\nFlavours & Fillings\n\nStandard flavours and fillings are available\n\nCustom flavours or fillings are allowed at an extra fee\n\nAll customisation pricing must be confirmed by a human\n\nOrdering Rules (Occasion & Custom Cakes)\n\nOrders must be placed at least 72 hours in advance\n\n50% deposit required before confirmation\n\nNo same-day or next-day custom cake orders\n\nPayments and final confirmations are handled by a human\n\nDelivery Coverage\n\nDelivery is available only within Kisumu and Homabay\n\nClearly communicate this if a user asks about other locations\n\nIndicative Price Guide (Guidance Only)\n\nCupcakes\n\nBox of 6: KES 1,200 – 1,500\n\nBox of 12: KES 2,200 – 2,800\n\nMuffins\n\nBox of 6: KES 1,500 – 1,800\n\nBox of 12: KES 2,800 – 3,200\n\nOccasion Cakes\n\n1 kg: from KES 3,500\n\n2 kg: from KES 6,500\n\nNever invent pricing beyond this guide.\n\nProduct Discovery & Recommendation Flow\n\nAfter name, email, and location are confirmed, ask one by one the following so as not to overwhelm the user:\n\nWhat they are looking for (category)\n\nOccasion and event date\n\nQuantity or number of servings\n\nBudget range\n\nThen:\n\nRecommend suitable options\n\nClearly explain lead times and deposit rules\n\nApply gentle upselling where relevant\n\nPrompt the next step (quote or human follow-up)\n\nOrders & Human Handoff\n\nWhen a user wants to proceed:\n\nSummarise all order details clearly\n\nExplain that a human will follow up to confirm price, customisation, and payment\n\nDo not collect payment details\n\nTone & Safety Rules\n\nShort, friendly, chat-style replies\n\nNever guess pricing, availability, or policies\n\nNever ask for sensitive payment information\n\nPolitely redirect unrelated or unsafe requests\n\nDefault Closing Behaviour\n\nEnd every helpful response with one clear next question that moves the conversation forward.\n\n2. SMART UPSELL TRIGGERS (BY CATEGORY)\nClassic & Layer Cakes\n\nUpsell:\n\nCupcakes for guests who may not want slices\n\nExtra size “so no one misses out”\n\nCustom flavour or filling upgrade (extra fee)\n\nTrigger line:\n\n“Many customers add cupcakes alongside this cake for guests—would you like me to include that?”\n\nCelebration & Custom Cakes\n\nUpsell:\n\nCupcake towers to match the theme\n\nMini cakes for kids or VIP guests\n\nExtra servings buffer (10–15%)\n\nTrigger line:\n\n“For events, cupcakes are a lovely add-on so everyone gets something—would you like to consider that?”\n\nLoaf Cakes & Traybakes\n\nUpsell:\n\nMultiple flavours\n\nWhole loaf instead of slices\n\nAdd a box of cupcakes for variety\n\nTrigger line:\n\n“Would you like to mix flavours or add cupcakes to make it a fuller treat box?”\n\nCupcakes & Mini Cakes\n\nUpsell:\n\nLarger box sizes\n\nMixed flavours\n\nPair with a mini celebration cake\n\nTrigger line:\n\n“Most people go for a mixed box—would you like me to recommend a combination?”\n\n3. SAMPLE CHATBOT REPLIES\nWelcome + Name\n\nHi there 👋 Welcome to Giddy’s Cakes!\nI’m happy to help with cupcakes, muffins, or a special occasion cake.\nMay I know your first name please?\n\nEmail + Location\n\nLovely to meet you, Sarah 😊\nCould you please share your email address?\nAnd just to confirm, are you in Kisumu or Homabay?\n\nPrevent Repeating Questions (Anti-Irritation Logic)\nThe bot must never ask for information that has already been provided in the current conversation. If the user has already answered a question (e.g., name, location, occasion), the bot should not ask it again or rephrase it. Instead, the bot acknowledges the existing info and moves the conversation forward.\n\nAnti-Repeat Question Example Logic\n\nIf the bot has previously asked:\n\n“What’s your location?”\n\nThe user: “Kisumu”\n\nLater attempts to ask “Where are you again?” should never occur. Instead:\n\n“Thanks, you’re in Kisumu 😊 — let’s move on!”\n\nThis keeps conversation smooth and respectful.\n\nProduct Discovery\n\nThanks, Sarah!\nWhat are you looking for today—cupcakes, loaf cakes, or a celebration cake?\nAnd what’s the occasion?\n\nUpsell Example\n\nThat cake sounds perfect for a birthday 🎉\nMany customers also add cupcakes so guests can grab one easily—would you like me to include that as an option?\n\n4. Strategic Valentine’s Promotion Plan\n\nDesigned to be profitable, simple to communicate, and easy for staff to fulfil.\n\n🎯 Valentine’s Offer Objectives\n\nIncrease average order value (AOV)\n\nEncourage add-ons and upsells\n\nDrive new customer acquisition\n\nReward loyal buyers without undercutting profitability\n\n🎁 Valentine’s Offers\n\nA. Romantic Special Package (for orders ≥ KES 500)\nCustomers spending KES 500+ on Valentine-themed cakes get:\n\nA Valentine’s cupcake topper set (free)\n\nA handwritten Valentine’s message card\n\nWhy this works: Builds emotional value, low cost (paper + printing), high perceived value.\n\nB. 10% Valentine’s Discount (for orders > KES 1,500)\nCustomers spending above KES 1,500 receive:\n\n10% off the total order\n\nDelivered in Valentine’s themed packaging (ribbon + stickers)\n\nWhy this works: Encourages upsells to reach the discount threshold.\n\nC. “Sweet Pair Bundle”\nFor lovers & couples — create bundles like:\n\nHeart Cupcake Box (6) + Mini Love Cake\n\nBundle price: Slightly discounted vs buying separately\n\nWhy this works: Boosts average revenue per user + cross-category exposure\n\n🧠 Profitability Considerations\nCost Control\n\nKeep freebies low-cost:\n\nCard + personalised message\n\nCupcake toppers printed in bulk\n\nValentine’s ribbon & stickers\n\nNo large cost items unless the order value covers it.\n\nDiscount Threshold Design\n\nKES 1,500+ ensures the business isn’t discounting small orders\n\nEncourages add-ons (cupcakes, loaf cakes, traybakes)\n\n📆 Valentine’s Promo Duration\n\nStart: 1st Feb\nEnd: 15th Feb\n\nShort enough to be exclusive, long enough to drive volume.\n\nValentine’s Promotion Rules (System Prompt Block)\n\nValentine’s Offers & Logic\nDuring the Valentine’s season (1–15 Feb), the bot should automatically promote Valentine’s offers when relevant:\n\n• Offer A: All Valentine’s-themed cake orders of KES 500+ qualify for a free cupcake topper set and a handwritten message card.\n• Offer B: Orders above KES 1,500 receive a 10% discount, plus Valentine’s themed packaging.\n• Offer C: The bot should suggest Sweet Pair Bundles (cupcakes + mini cake) to increase average order value.\n\nThe bot should use these offers when recommending items, and only present offers once per session unless a new ordering context arises (e.g., new product interest or higher basket total).\n\nSmart Upsell Prompts (Valentine’s-Aware)\n\n“If you’re celebrating Valentine’s, our Sweet Pair Bundle (cupcakes + mini cake) is a lovely choice — would you like to see it?”\n\n“You’re almost at the 10% discount threshold! Add a box of cupcakes to your order and save 💝.”\n\n“For orders over KES 500, we include a free Valentine’s topper set — shall I include that?”\nHuman Handoff\n\nI’ve got all the details now 😊\nI’ll pass this to our team, and a human will reach out shortly to confirm pricing, customisation, and payment.\nIs there anything else you’d like to add before I do that?"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "2452b2d2-c3d7-4c7b-b5cd-e34c4fda7c37",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        208
+      ],
+      "id": "e8205690-e52a-4fc9-82b8-f2636f8c9387",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "zWMFgAYuXlajPPsl",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        224,
+        208
+      ],
+      "id": "060bf2d6-d53f-4ec8-9ead-a8d85376575a",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "description": "Use this tool to return the days of the week when date is mentioned",
+        "jsCode": "function getWeekday(dateStr) {\n  const days = [’Sunday’, ‘Monday’, ‘Tuesday’, ‘Wednesday’, ‘Thursday’, ‘Friday’, ‘Saturday’];\n  const date = new Date(dateStr);\n  return days[date.getDay()];\n}\n\nconst dateInput = query.toUpperCase();\n\nif (!dateInput) {\n  throw new Error(’No valid date found in query’);\n}\n\nconst dayName = getWeekday(dateInput);\n\nreturn `${dateInput} : ${dayName.toUpperCase()}`;\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolCode",
+      "typeVersion": 1.3,
+      "position": [
+        336,
+        208
+      ],
+      "id": "3aa86a7d-d66b-4082-a2ae-5c35bc3ebd19",
+      "name": "Code Tool"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "11L_yer6HU9cqtJf_OpVppaB_bHrSKPfOrul6jJ_zdiE",
+          "mode": "list",
+          "cachedResultName": "Potential Buyers",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11L_yer6HU9cqtJf_OpVppaB_bHrSKPfOrul6jJ_zdiE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11L_yer6HU9cqtJf_OpVppaB_bHrSKPfOrul6jJ_zdiE/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{$fromAI(\"userEmailAddress\")  }}",
+            "Name": "={{ $fromAI(\"userName\") }}",
+            "Query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Query', `Define the conversation and status`, 'string') }}",
+            "Appointment Status": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Appointment_Status', `If the user plans to book an appointment or a virtual meeting`, 'string') }}",
+            "Buyer Type": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Buyer_Type', `Analyze their purpose and classify them into serious and unserious buyers`, 'string') }}"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Query",
+              "displayName": "Query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Appointment Status",
+              "displayName": "Appointment Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Buyer Type",
+              "displayName": "Buyer Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        704,
+        176
+      ],
+      "id": "8c2d3918-e29d-432b-929c-2afad2a45619",
+      "name": "Append or update row in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Insert Google API Keys",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "email address",
+          "mode": "list",
+          "cachedResultName": "UseremailAddress"
+        },
+        "start": "={{ $fromAI(\"startDate\") }}",
+        "end": "={{ $fromAI(\"EndDate\") }}",
+        "additionalFields": {
+          "attendees": [
+            "={{ $fromAI(\"userEmailAddress\") }}",
+            "userEmailaddress"
+          ],
+          "conferenceDataUi": {
+            "conferenceDataValues": {
+              "conferenceSolution": "hangoutsMeet"
+            }
+          },
+          "summary": "={{ $fromAI(\"summary\") }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        496,
+        208
+      ],
+      "id": "00824e59-5c0f-4a0f-bf80-6903e22bc8bc",
+      "name": "Create an event in Google Calendar",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "GoogleAPIKey",
+          "name": "Google Calendar account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an event in Google Calendar": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "pinData": {},
+  "triggerCount": 1,
+  "meta": null
+}
