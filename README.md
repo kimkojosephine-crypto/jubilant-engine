@@ -47,7 +47,7 @@ I am a **Freelance Digital Operations Specialist** currently available for remot
 - End-to-End Digital Ops Audits.
 
 **Connect with me:**
-[LinkedIn]([[https://www.linkedin.com/in/josephine-kimko-56827565/] | [Email]([mailto:josephinekimko@gmail.com)] | [Portfolio](YOUR_PORTFOLIO_LINK)
+[LinkedIn]([[https://www.linkedin.com/in/josephine-kimko-56827565/] | [Email] ([[mailto:josephinekimko@gmail.com] | [Portfolio](YOUR_PORTFOLIO_LINK)
 
 ---
 *Built for efficiency. Designed for growth.*
