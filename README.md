@@ -13,20 +13,24 @@ Most AI systems fail because they hit "Zone 3" (High Complexity) and collapse. I
 
 ### 📂 Repository Contents
 
-#### 1. The Complexity Router (Core Logic)
+#### 1. AI Automation
+Workflows to build and scale operations
+-**Includes:**workflows, prompts, SOPs
+
+#### 2. The Complexity Router (Core Logic)
 A library of advanced system prompts designed to audit task complexity before execution.
 - **Goal:** Prevent AI "hallucinations" and ensure 100% milestone delivery.
 - **Tech:** Optimized for Gemini 1.5 Pro, Claude 3.5 Sonnet, and GPT-4o.
 
-#### 2. Automated Lead Gen Architectures
+#### 3. Automated Lead Gen Architectures
 Frameworks for building scalable, remote lead generation engines.
 - **Includes:** Logical flows for lead qualification, automated outreach scripts, and CRM integration logic.
 
-#### 3. Remote Project Management (RPM) Suites
+#### 4. Remote Project Management (RPM) Suites
 Automated templates for tracking milestones and stakeholder communication in a borderless environment.
 - **Includes:** Milestone trackers, automated status report prompts, and Risk/Issue log logic.
 
-#### 4. SMM Content Systems
+#### 5. SMM Content Systems
 Operationalizing social media through automated content pillars and visibility tracking.
 
 ---
