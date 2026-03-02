@@ -1,0 +1,68 @@
+AI Automation & Digital Ops Frameworks 🤖⚙️
+Architecting Reliability in a "Zone 3" World
+Welcome to my repository of logical frameworks and automated workflows. As a Digital Operations Specialist, I specialize in building systems that prevent AI "model collapse." I bridge the gap between complex business needs and seamless, automated execution using n8n, Docker, and API Orchestration.
+
+📂 Featured Project: The Giddy's AI Agent
+A Full-Stack Customer Support & Logistics Orchestrator
+
+I engineered a custom AI chatbot for Giddy's, a regional online cake shop (serving Kisumu & Homabay). This project demonstrates the integration of complex logic with real-world business tools.
+
+The Architecture:
+Deployment: Docker-based n8n instance hosted via Render for reliable webhook management.
+
+Brain: OpenAI GPT-4o with Window Buffer Memory nodes for persistent context tracking (cake flavors, delivery preferences).
+
+Security: Full OAuth2 implementation via Google Cloud for secure API handshakes.
+
+Interdependent Tools (The Action Layer):
+
+Google Calendar Tool: Automatically schedules delivery events.
+
+Google Sheets Tool: Real-time order logging and customer database management.
+
+Custom JavaScript/JSON: Logic-gated delivery validation (restricting orders to specific counties).
+
+Marketing Extension: A secondary n8n workflow using HTTP Requests to automatically generate social media content based on inventory/order trends.
+
+🚀 Core Specialized Workflows
+1. AI Complexity Router 🚦
+The cornerstone of my methodology. This logic audits incoming tasks and routes them through the 3 Zones of Performance (Low, Medium, and High Complexity) to ensure 100% accuracy and prevent "Zone 3" hallucinations.
+
+2. Lead Generation & Enrichment Architecture 📈
+Frameworks for building automated lead engines.
+
+Tech: n8n + HTTP Requests + CRM Integrations.
+
+Logic: Data extraction, qualification scoring (JSON-based), and automated outreach personalization.
+
+3. Remote Project Management (RPM) Suites 💻
+Tools for borderless team coordination.
+
+Focus: Automated status reporting, milestone tracking, and meeting-to-action-item synthesis.
+
+🛠️ Tech Stack & Skills
+Automation: n8n (Advanced), Zapier, Make.com.
+
+Dev-Ops: Docker, Render, JSON, JavaScript (Logic Tooling).
+
+API/Security: OAuth2, Google Cloud Console, OpenAI API Management.
+
+Data/PM: SPSS, MS Project, Logical Frameworks (LFM).
+
+📜 My Methodology: The 3 Zones
+I ground every automation in Results-Based Management (RBM) and the research-backed "3 Zones" of AI performance:
+
+🟢 Zone 1 (Low): Standard Model Routing for high-speed, low-cost formatting.
+
+🟡 Zone 2 (Medium): The "Sweet Spot" for AI-driven strategy and reasoning.
+
+🔴 Zone 3 (High): Decomposed into manageable "Zone 2" chunks via my custom sub-tasking frameworks.
+
+🤝 Hire for Digital Ops & Automation
+I am available for remote contracts focusing on:
+
+AI Agent Design & Deployment (n8n/Docker focus).
+
+Automated Lead Generation Systems.
+
+Workflow Audits & Digital Efficiency Consulting.
