@@ -54,9 +54,9 @@ I don't ask AI to "think." I ask it to follow a system based on complexity:
 ## 🤝 Let's Scale Together
 I am available for remote contracts to help you audit, automate, and accelerate your digital operations.
 
-- **LinkedIn:** [Insert Link]
-- **Email:** jullianraph22@gmail.com
-- **WhatsApp/Facebook:** [Insert Link]
+- **LinkedIn:** [https://www.linkedin.com/in/josephine-kimko-56827565/]
+- **Email:** josephinekimko@gmail.com
+- **Threads:** [https://www.threads.com/@gracekimko]
 
 ---
 > *"The secret to effective AI isn't the model—it's the architecture behind it."*
